@@ -161,6 +161,8 @@ WCHAR mononotfound[74];
 WCHAR failed[86];
 
 void OnAttach(HMODULE hModule) {
+	// The reason I made obfuscated strings was because I was planning to release it and I didn't want noobs to just hex edit my stuff,
+	// but whatever it will be open source.
 #pragma region "Obfuscated Strings"
 	credits[6] = L'0' + 19;
 	credits[45] = 113;

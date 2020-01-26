@@ -97,51 +97,21 @@ namespace TemtemCheat.Cheat {
             if (GUI.Button(new Rect(15, 125, 170, 20), "Add all Items to Shop")) {
                 AllItemDefinitions instance = Resources.FindObjectsOfTypeAll<AllItemDefinitions>()[0];
                 List<ItemDefinition> list = new List<ItemDefinition>();
-                foreach (var items in instance.BundleItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.CaptureItemsList) {
-                    list.Add(items);
-                }
-                list.Add(instance.ClimbingEquipment);
-                foreach (var items in instance.CosmeticItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.CourseItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.EmoteItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.GeneralItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.HardcodedPromoCodeItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.HeldItemsList) {
-                    list.Add(items);
-                }
-                list.Add(instance.Hook);
-                foreach (var items in instance.KeyItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.MedicineItemsList) {
-                    list.Add(items);
-                }
-                list.Add(instance.Skates);
-                foreach (var items in instance.StickerItemsList) {
-                    list.Add(items);
-                }
-                list.Add(instance.SurfBoard);
-                list.Add(instance.TeleportItem);
-                foreach (var items in instance.TintBundleItemsList) {
-                    list.Add(items);
-                }
-                foreach (var items in instance.TintItemsList) {
-                    list.Add(items);
-                }
-                list.Add(instance.ToxicSurfBoard);
+
+                // Thank you so much EquiFox!
+                foreach (ItemDefinition item in instance.GeneralItemsList.Union(instance.BundleItemsList)
+                    .Union(instance.CaptureItemsList)
+                    .Union(instance.CosmeticItemsList)
+                    .Union(instance.CourseItemsList)
+                    .Union(instance.EmoteItemsList)
+                    .Union(instance.HardcodedPromoCodeItemsList)
+                    .Union(instance.HeldItemsList)
+                    .Union(instance.KeyItemsList)
+                    .Union(instance.MedicineItemsList)
+                    .Union(instance.StickerItemsList)
+                    .Union(instance.TintBundleItemsList)
+                    .Union(instance.TintItemsList)) list.Add(item);
+
                 BuyableItemList[] shops = Resources.FindObjectsOfTypeAll<BuyableItemList>();
                 Console.WriteLine(shops.Length);
                 List<int> ids = new List<int>();

@@ -122,8 +122,8 @@ namespace TemtemCheat.Cheat {
                     //NetworkMonster monster1 = p2.GetSFSArray("teamMonsters").GetClass(0) as NetworkMonster;
                     //monster1.luma = true;
                     //monster1.Nickname = "gay";
-                    p2.PutUtfString("nck", "nitro.");
-                    p2.PutInt("tid", 1337);
+                    //p2.PutUtfString("nck", "nitro.");
+                    //p2.PutInt("tid", 1337);
                 }
 
                 // Player movements

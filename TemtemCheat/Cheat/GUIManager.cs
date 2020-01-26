@@ -150,7 +150,6 @@ namespace TemtemCheat.Cheat {
                 }
                 foreach (var shop in shops) shop.ShopItemIds = ids;
             }
-            GUI.Button(new Rect(15, 150, 170, 20), "Open Shop");
             GUI.Label(new Rect(40, 175, 170, 20), "Made by nitro.#0007");
             GUI.DragWindow();
         }

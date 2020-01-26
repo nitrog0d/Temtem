@@ -20,12 +20,13 @@ using Temtem.World;
 using System.Collections.Generic;
 using Temtem.UI;
 using Temtem.Inventory;
+using Temtem.Players;
 
 namespace TemtemCheat.Cheat {
     class GUIManager : MonoBehaviour {
 
         private bool guiEnabled = false;
-        private Rect guiRect = new Rect(20, 20, 200, 160);
+        private Rect guiRect = new Rect(20, 20, 200, 200);
 
         private void Awake() {
             Logger.LogLine("[GUIManager] GUI Manager started, press F1 to open it.");
@@ -91,7 +92,6 @@ namespace TemtemCheat.Cheat {
                     (x.PropertyType.GetEnumValues().Length == 24)
                     ).ToArray()[0];
                     menu.SetValue(uiManagerInstance, (int)Menu.StorageBox);
-                   // uiManagerInstance.dhcnooefhhj();
                 }
             }
             if (GUI.Button(new Rect(15, 125, 170, 20), "Add all Items to Shop")) {
@@ -150,6 +150,8 @@ namespace TemtemCheat.Cheat {
                 }
                 foreach (var shop in shops) shop.ShopItemIds = ids;
             }
+            GUI.Button(new Rect(15, 150, 170, 20), "Open Shop");
+            GUI.Label(new Rect(40, 175, 170, 20), "Made by nitro.#0007");
             GUI.DragWindow();
         }
 

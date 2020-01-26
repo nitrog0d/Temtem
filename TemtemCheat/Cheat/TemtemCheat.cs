@@ -55,8 +55,6 @@ namespace TemtemCheat.Cheat {
             Logger.LogLine("Starting PatchManager.");
             PatchManager.Patch();
 
-            
-
             Logger.LogLine("Starting GUIManager.");
             CheatLoader.cheat.AddComponent<GUIManager>();
         }

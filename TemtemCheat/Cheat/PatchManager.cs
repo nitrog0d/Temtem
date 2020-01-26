@@ -17,6 +17,8 @@ using Sfs2X.Entities.Data;
 using Sfs2X.Controllers;
 using temtem.networkserialized;
 using Temtem.World;
+using Temtem.UI;
+using TMPro;
 
 namespace TemtemCheat.Cheat {
     class PatchManager {
@@ -48,8 +50,8 @@ namespace TemtemCheat.Cheat {
             ApplyPatch(queueTimeMethod, "QueueTimePatch");
 
             // Patch SmartFox
-            //ApplyPatch(typeof(SFSIOHandler).GetMethod("OnDataWrite", BindingFlags.Public | BindingFlags.Instance), "SFOnDataWritePatch");
-            //ApplyPatch(typeof(SFSProtocolCodec).GetMethod("DispatchRequest", BindingFlags.NonPublic | BindingFlags.Instance), "SFDispatchRequestPatch");
+            ApplyPatch(typeof(SFSIOHandler).GetMethod("OnDataWrite", BindingFlags.Public | BindingFlags.Instance), "SFOnDataWritePatch");
+            ApplyPatch(typeof(SFSProtocolCodec).GetMethod("DispatchRequest", BindingFlags.NonPublic | BindingFlags.Instance), "SFDispatchRequestPatch");
 
             // Spawn chance when in wild area
             // https://nitro.moe/kYl5x.png
@@ -61,7 +63,6 @@ namespace TemtemCheat.Cheat {
 
             // Disable obscured types
             ApplyPatch(typeof(GameLogic).GetMethod("Awake", BindingFlags.NonPublic | BindingFlags.Instance), "GLAwakePatch", true);
-
         }
 
         private static bool QueueTimePatch(ref float __0) {
@@ -118,11 +119,11 @@ namespace TemtemCheat.Cheat {
                 ISFSObject p = raw.GetSFSObject("p");
                 if (p.GetUtfString("c") == "GameStart") {
                     ISFSObject p2 = p.GetSFSObject("p");
-                    NetworkMonster monster1 = p2.GetSFSArray("teamMonsters").GetClass(0) as NetworkMonster;
-                    monster1.luma = true;
-                    monster1.Nickname = "gay";
-                    //Logger.LogLine();
-                    p2.PutUtfString("nck", "owo");
+                    //NetworkMonster monster1 = p2.GetSFSArray("teamMonsters").GetClass(0) as NetworkMonster;
+                    //monster1.luma = true;
+                    //monster1.Nickname = "gay";
+                    p2.PutUtfString("nck", "nitro.");
+                    p2.PutInt("tid", 1337);
                 }
 
                 // Player movements
